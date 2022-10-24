@@ -6,7 +6,7 @@ import client from "../../sanity";
 
 const FeaturedRow = ({ title, description, id }) => {
   const [restaurants, setRestaurants] = useState([]);
-  console.log(id)
+
   useEffect(() => {
     client
       .fetch(
@@ -15,16 +15,14 @@ const FeaturedRow = ({ title, description, id }) => {
       restaurants[]->{
         ...,
         dishes[]->{
-          type->{
-          name
-        }
+          ...
         }
       }
     }[0]`,
         { id:id }
       )
       .then((data) => {
-        console.log(data?.restaurants)
+
         setRestaurants(data?.restaurants)
       });
   }, []);
