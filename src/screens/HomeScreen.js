@@ -20,7 +20,7 @@ const HomeScreen = () => {
     });
   }, []);
   return (
-    <SafeAreaView className="bg-white flex-1 ">
+    <SafeAreaView className="bg-white flex-1 " >
       <View className="px-2 pb-2">
         <View className="flex-row space-x-4 ">
           <Image
@@ -46,7 +46,7 @@ const HomeScreen = () => {
         </View>
       </View>
 
-      <ScrollView className="bg-gray-100 p-2 pt-4">
+      <ScrollView className="bg-gray-100 p-2 pt-4 pb-4" showsVerticalScrollIndicator={false}>
         <Categories />
 
         <FeaturedRow
