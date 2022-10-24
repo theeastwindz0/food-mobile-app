@@ -1,6 +1,7 @@
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import React from "react";
 import {Ionicons} from '@expo/vector-icons'
+import { urlFor } from "../../sanity";
 const RestaurantCard = ({
   id,
   imageUrl,
@@ -14,7 +15,7 @@ const RestaurantCard = ({
 }) => {
   return (
     <TouchableOpacity activeOpacity={0.8} className='bg-white shadow-md  w-64 mr-4'>
-        <Image source={{uri:imageUrl}} className='h-36 w-64'/>
+        <Image source={{uri:urlFor(imageUrl).url()}} className='h-36 w-64'/>
         <View className='p-2'>
             <Text className='text-lg font-bold'>{title}</Text>
             <View className='flex-row items-center space-x-2'>

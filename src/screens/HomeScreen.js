@@ -1,5 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
-import React, { useLayoutEffect } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import {
   View,
   Text,
@@ -11,14 +11,28 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 import Categories from "../components/Categories";
 import FeaturedRow from "../components/FeaturedRow";
+import SanityClient from "../../sanity";
 const HomeScreen = () => {
   const navigation = useNavigation();
+  const [featuredCategories,setFeaturedCategories]=useState([])
 
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: false,
     });
   }, []);
+
+  useEffect(()=>{
+    SanityClient.fetch(`*[_type=='featured']{
+      ...,
+      restaurants[]->{
+        ...,
+        dishes[]->{
+          ...,
+        }
+      }
+    }`).then(data=>setFeaturedCategories(data))
+  },[])
   return (
     <SafeAreaView className="bg-white flex-1 " >
       <View className="px-2 pb-2">
@@ -48,22 +62,15 @@ const HomeScreen = () => {
 
       <ScrollView className="bg-gray-100 p-2 pt-4 pb-4" showsVerticalScrollIndicator={false}>
         <Categories />
+        {featuredCategories.map((item,i)=>
+        <FeaturedRow
+          key={i}
+          id={item._id}
+          title={item.name}
+          description={item.short_description}
+        />
+        )}
 
-        <FeaturedRow
-          id="1"
-          title="Featured"
-          description="Paid Placements from our partners !"
-        />
-        <FeaturedRow
-          id="2"
-          title="Tasty Discounts"
-          description="Everyone been enjoying the juicy dicsounts !"
-        />
-        <FeaturedRow
-          id="3"
-          title="Offers near you"
-          description="Why not support your local restaurant tonight !"
-        />
       </ScrollView>
     </SafeAreaView>
   );
