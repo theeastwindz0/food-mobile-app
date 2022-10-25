@@ -11,6 +11,7 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import { urlFor } from "../../sanity";
 import { Ionicons, FontAwesome } from "@expo/vector-icons";
 import DishRow from "../components/DishRow";
+import BasketIcon from "../components/BasketIcon";
 const RestaurantScreen = () => {
   // const route=useRoute();
   //Clever Destructing , lol
@@ -36,7 +37,9 @@ const RestaurantScreen = () => {
     navigation.setOptions({ headerShown: false });
   }, []);
   return (
-    <ScrollView className='mb-4' showsVerticalScrollIndicator={false}>
+    <View>
+    <BasketIcon/>
+    <ScrollView className='' showsVerticalScrollIndicator={false}>
         
       <View className="relative">
         <Image
@@ -72,7 +75,7 @@ const RestaurantScreen = () => {
           </TouchableOpacity>
 
         </View>
-          <View className='bg-white '>
+          <View className='bg-white pb-36'>
             <Text className='text-xl font-bold p-4 '>Menu</Text>
             {dishes.map((item,i)=>
             <DishRow key={item._id} 
@@ -85,6 +88,7 @@ const RestaurantScreen = () => {
           </View>
       </View>
     </ScrollView>
+    </View>
   );
 };
 

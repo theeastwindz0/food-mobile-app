@@ -3,8 +3,21 @@ import React, { useState } from "react";
 import { TouchableOpacity } from "react-native";
 import { urlFor } from "../../sanity";
 import {FontAwesome} from '@expo/vector-icons'
+import {useDispatch,useSelector} from 'react-redux'
+import { basketActions } from "../../store/slices/basketSlice";
 const DishRow = ({ id, name, description, price, image }) => {
+
+  const items=useSelector((state)=>state.basket.items.filter((item)=>item.id===id))
   const [isPressed, setIsPressed] = useState(false);
+  const dispatch=useDispatch();
+  const addItemToBasket=()=>{
+    dispatch(basketActions.addToBasket({id,name,description,price,image}));
+  }
+
+  const removeItemFromBasket=()=>{
+    if(items.length===0)return
+    dispatch(basketActions.removeFromBasket({id}));
+  }
   return (
     <>
       <TouchableOpacity
@@ -28,13 +41,13 @@ const DishRow = ({ id, name, description, price, image }) => {
       </TouchableOpacity>
       {isPressed && 
       <View className='px-4 flex-row items-center space-x-2 p-2'>
-    <TouchableOpacity activeOpacity={0.8}>
-        <FontAwesome size={28} name='minus-circle' color='#00CCBB'/>
+    <TouchableOpacity activeOpacity={0.8} onPress={removeItemFromBasket} disabled={!items.length}>
+        <FontAwesome size={28} name='minus-circle' color={`${items.length>0 ? '#00CCBB' : 'gray' }`}/>
     </TouchableOpacity>
 
-    <Text>0</Text>
+    <Text>{items.length}</Text>
 
-    <TouchableOpacity activeOpacity={0.8}>
+    <TouchableOpacity activeOpacity={0.8} onPress={addItemToBasket}>
         <FontAwesome size={28} name='plus-circle' color='#00CCBB'/>
     </TouchableOpacity>
     </View>}
