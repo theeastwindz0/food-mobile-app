@@ -37,6 +37,7 @@ const RestaurantScreen = () => {
   }, []);
   return (
     <ScrollView className='mb-4' showsVerticalScrollIndicator={false}>
+        
       <View className="relative">
         <Image
           source={{ uri: urlFor(imageUrl).url() }}
