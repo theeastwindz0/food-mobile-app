@@ -12,6 +12,9 @@ import { urlFor } from "../../sanity";
 import { Ionicons, FontAwesome } from "@expo/vector-icons";
 import DishRow from "../components/DishRow";
 import BasketIcon from "../components/BasketIcon";
+import {useDispatch} from 'react-redux'
+import { useEffect } from "react";
+import { restaurantActions } from "../../store/slices/restaurantSlice";
 const RestaurantScreen = () => {
   // const route=useRoute();
   //Clever Destructing , lol
@@ -31,13 +34,20 @@ const RestaurantScreen = () => {
   } = useRoute();
   const navigation = useNavigation();
 
+  const dispatch=useDispatch();
+
+  useEffect(() => {
+    dispatch(restaurantActions.setRestaurant({id,imageUrl,title,rating,genre,address,short_description,dishes}))
+  }, [dispatch])
+  
+
 
 
   useLayoutEffect(() => {
     navigation.setOptions({ headerShown: false });
   }, []);
   return (
-    <View>
+    <View className=''>
     <BasketIcon/>
     <ScrollView className='' showsVerticalScrollIndicator={false}>
         
