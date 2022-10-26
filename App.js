@@ -13,6 +13,7 @@ export default function App() {
   const Stack=createNativeStackNavigator();
   return (
     <NavigationContainer>
+      <StatusBar style='dark' />
       <Provider store={store}>
       <Stack.Navigator>
         <Stack.Screen name='Home' component={HomeScreen} />

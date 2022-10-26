@@ -27,7 +27,7 @@ const DeliveryScreen = () => {
         <Image source={{uri:'https://links.papareact.com/fls'}} className='h-20 w-20' />
         </View>
         <Text className='text-gray-600 mt-2 '>
-            Your order at {restaurant.title} is begin prepared.
+            Your order at {restaurant.title} is being prepared.
         </Text>
     </View>
 
