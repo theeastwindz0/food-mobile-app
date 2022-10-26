@@ -44,7 +44,7 @@ const BasketScreen = () => {
             activeOpacity={0.8}
             onPress={() => navigation.goBack()}
           >
-            <Entypo name="circle-with-cross" size={40} color="#00CCBB" />
+            <Entypo name="circle-with-cross" size={40} color="#00ADB5" />
           </TouchableOpacity>
         </View>
 
@@ -55,7 +55,7 @@ const BasketScreen = () => {
           />
           <Text className="flex-1">Delivery in 30 minutes</Text>
           <TouchableOpacity activeOpacity={0.8}>
-            <Text className="text-[#00CCBB]">Change</Text>
+            <Text className="text-[#00ADB5]">Change</Text>
           </TouchableOpacity>
         </View>
         <ScrollView className='divide-y divide-gray-200'>
@@ -66,7 +66,7 @@ const BasketScreen = () => {
               <Text className='flex-1'>{items[0]?.name}</Text>
               <Text>₹ {items[0]?.price}</Text>
               <TouchableOpacity activeOpacity={0.6} onPress={()=>dispatch(basketActions.removeFromBasket({id:key}))}>
-                <Text className='text-[#00CCBB]'>
+                <Text className='text-[#00ADB5]'>
                   Remove
                 </Text>
               </TouchableOpacity>
@@ -90,7 +90,7 @@ const BasketScreen = () => {
             <Text>₹ {basketTotal}</Text>
           </View>
 
-          <TouchableOpacity className='bg-[#00CCBB] p-2 rounded-md' onPress={()=>navigation.navigate('PreparingOrder')}>
+          <TouchableOpacity className='bg-[#00ADB5] p-2 rounded-md' onPress={()=>navigation.navigate('PreparingOrder')}>
             <Text className='text-white text-center font-bold text-xl'>Place Order</Text>
           </TouchableOpacity>
         </View>

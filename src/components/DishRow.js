@@ -42,13 +42,13 @@ const DishRow = ({ id, name, description, price, image }) => {
       {isPressed && 
       <View className='px-4 flex-row items-center space-x-2 p-2'>
     <TouchableOpacity activeOpacity={0.8} onPress={removeItemFromBasket} disabled={!items.length}>
-        <FontAwesome size={28} name='minus-circle' color={`${items.length>0 ? '#00CCBB' : 'gray' }`}/>
+        <FontAwesome size={28} name='minus-circle' color={`${items.length>0 ? '#00ADB5' : 'gray' }`}/>
     </TouchableOpacity>
 
     <Text>{items.length}</Text>
 
     <TouchableOpacity activeOpacity={0.8} onPress={addItemToBasket}>
-        <FontAwesome size={28} name='plus-circle' color='#00CCBB'/>
+        <FontAwesome size={28} name='plus-circle' color='#00ADB5'/>
     </TouchableOpacity>
     </View>}
     </>

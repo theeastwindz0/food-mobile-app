@@ -33,7 +33,7 @@ const FeaturedRow = ({ title, description, id }) => {
     <View className="pt-4">
       <View className="flex-row justify-between">
         <Text className="text-lg font-bold">{title}</Text>
-        <Ionicons name="arrow-forward" size={24} color="#00CCBB" />
+        <Ionicons name="arrow-forward" size={24} color="#00ADB5" />
       </View>
       <Text className="text-xs text-gray-500 ">{description}</Text>
 

@@ -37,7 +37,7 @@ const RestaurantScreen = () => {
   const dispatch=useDispatch();
 
   useEffect(() => {
-    dispatch(restaurantActions.setRestaurant({id,imageUrl,title,rating,genre,address,short_description,dishes}))
+    dispatch(restaurantActions.setRestaurant({id,imageUrl,title,rating,genre,address,short_description,dishes,long,lat}))
   }, [dispatch])
   
 
@@ -81,7 +81,7 @@ const RestaurantScreen = () => {
           >
             <FontAwesome name="question-circle-o" size={24} color="black" />
             <Text className="flex-1">Have a food allergy ?</Text>
-            <Ionicons name="arrow-forward" size={24} color="#00CCBB" />
+            <Ionicons name="arrow-forward" size={24} color="#00ADB5" />
           </TouchableOpacity>
 
         </View>

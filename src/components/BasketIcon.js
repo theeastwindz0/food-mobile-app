@@ -11,7 +11,7 @@ const BasketIcon = () => {
     if(items.length===0)return null;
   return (
     <View className='absolute bottom-10 items-center  w-full z-10'>
-        <TouchableOpacity className='flex-row justify-between p-4  bg-[#00CCBB] w-[90%] rounded-lg' onPress={()=>navigation.navigate('Basket')} activeOpacity={0.8}
+        <TouchableOpacity className='flex-row justify-between p-4  bg-[#00ADB5] w-[90%] rounded-lg' onPress={()=>navigation.navigate('Basket')} activeOpacity={0.8}
         >
             <Text className='text-lg text-white font-semibold bg-[#01A296] py-1 px-1 '>{items.length}</Text>
             <Text className='text-lg text-white font-semibold'>View Basket</Text>

@@ -45,18 +45,18 @@ const HomeScreen = () => {
             <Text className="font-bold text-slate-400">Delivery Now!</Text>
             <Text className="text-xl font-bold">Current Location</Text>
           </View>
-          <Ionicons name="person" size={24} color="#00CCBB" className="" />
+          <Ionicons name="person" size={24} color="#00ADB5" className="" />
         </View>
 
         <View className="flex-row items-center space-x-2">
           <View className="flex-row flex-1 bg-gray-200 p-2">
-            <Ionicons name="search" size={24} color="#00CCBB" />
+            <Ionicons name="search" size={24} color="#00ADB5" />
             <TextInput
               placeholder="Restaurants and Cafes"
               keyboardType="default"
             />
           </View>
-          <Ionicons name="filter-outline" size={24} color="#00CCBB" />
+          <Ionicons name="filter-outline" size={24} color="#00ADB5" />
         </View>
       </View>
 
